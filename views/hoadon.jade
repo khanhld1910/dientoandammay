@@ -1,0 +1,38 @@
+
+extends ./layout.jade
+// tabledata dang o dang object
+block content
+  main.container.z-depth-1.grey.lighten-4
+    .row      
+      h4.header.brown-text.text-darken-4
+        |Danh Sách Hóa Đơn
+    .row#table-container
+      table#myTable.bordered.z-depth-1.sortable
+        thead
+          tr.light-green
+            th(data-field='idhoadon') Mã HD
+            th(data-field='ten') Khách hàng
+            th(data-field='thoigian') Thời gian
+            th(data-field='thanhtien') Thành tiền        
+        each item in tabledata
+          tr.data-row
+            td.item-idhoadon= item.idhoadon
+            td.item-ten= item.ten
+            td.item-thoigian= item.thoigian
+            td.item-thanhtien= item.thanhtien
+        
+    form.row(action='/inserthoadon', method='post', name='insert-form')
+      select#select-ten.browser-default.my-input.validate.col.s12.m5(name='idkhachhang')
+        option(value=' ', disabled='', selected='') Chọn khách hàng
+        each item in khachhang
+          option(value= item.idkhachhang)= item.ten
+      input#input-thoigian.my-input.validate.col.s12.m5(type='date', placeholder='Thời gian', name='thoigian')
+      button#insert-hoadon.btn-insert.btn.waves-effect.waves-light.my-btn.col.s12.m3(type='submit')
+        |Thêm
+      a#delete-hoadon.btn-delete.waves-effect.waves-light.btn.my-btn.col.s12.m3
+        |Xóa
+      a#update-hoadon.btn-update.waves-effect.waves-light.btn.my-btn.col.s12.m3
+        |Cập nhật
+  
+
+        

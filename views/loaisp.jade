@@ -1,0 +1,27 @@
+
+extends ./layout.jade
+// tabledata dang o dang object
+block content
+  main.container.z-depth-1.grey.lighten-4
+    .row      
+      h4.header.brown-text.text-darken-4
+        |Phân Loại Sản Phẩm
+    .row#table-container
+      table#myTable.bordered.z-depth-1.sortable
+        thead
+          tr.light-green
+            th(data-field='idloaisp') Mã loại SP
+            th(data-field='tenloaisp') Tên        
+        each item in tabledata
+          tr.data-row
+            td.item-idloaisp= item.idloaisp
+            td.item-tenloaisp.item-dtcontent(contenteditable='true')= item.tenloaisp
+        
+    form.row(action='/insertloaisp', method='post', name='insert-form')
+      input#input-tenloaisp.my-input.validate.col.s12(type='text', placeholder='Tên', name='tenloaisp')
+      button#insert-loaisp.btn-insert.btn.waves-effect.waves-light.my-btn.col.s12.m3(type='submit')
+        |Thêm
+      a#delete-loaisp.btn-delete.waves-effect.waves-light.btn.my-btn.col.s12.m3
+        |Xóa
+      a#edit-loaisp.btn-edit.waves-effect.waves-light.btn.my-btn.col.s12.m3
+        |Cập nhật

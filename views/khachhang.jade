@@ -1,0 +1,30 @@
+
+extends ./layout.jade
+// tabledata dang o dang object
+block content
+  main.container.z-depth-1.grey.lighten-4
+    .row      
+      h4.header.brown-text.text-darken-4
+        |Danh Sách Khách Hàng
+    .row#table-container
+      table#myTable.bordered.z-depth-1.sortable
+        thead
+          tr.light-green
+            th(data-field='idkhachhang') Mã KH
+            th(data-field='ten') Họ tên
+            th(data-field='email') Email                       
+        each item in tabledata
+          tr.data-row
+            td.item-idkhachhang= item.idkhachhang
+            td.item-ten.item-dtcontent(contenteditable='true')= item.ten
+            td.item-email.item-dtcontent(contenteditable='true')= item.email
+        
+    form.row(action='/insertkh', method='post', name='insert-form')
+      input#input-ten.my-input.validate.col.s12.m5(type='text', placeholder='Tên', name='ten')
+      input#input-email.my-input.validate.col.s12.m5(type='text', placeholder='Email', name='email')
+      button#btn-insert.btn.waves-effect.waves-light.my-btn.col.s12.m3(type='submit')
+        |Thêm
+      a#delete-kh.btn-delete.waves-effect.waves-light.btn.my-btn.col.s12.m3
+        |Xóa
+      a#edit-kh.btn-edit.waves-effect.waves-light.btn.my-btn.col.s12.m3
+        |Cập nhật

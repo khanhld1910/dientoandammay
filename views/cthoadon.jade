@@ -1,0 +1,44 @@
+
+extends ./layout.jade
+// tabledata dang o dang object
+block content
+  main.container.z-depth-1.grey.lighten-4
+    .row      
+      h4.header.brown-text.text-darken-4
+        |Chi Tiết Hóa Đơn
+    .row#table-container
+      table#myTable.bordered.z-depth-1.sortable
+        thead
+          tr.light-green
+            th(data-field='idchitiethoadon') Mã CTHD
+            th(data-field='idhoadon') Mã HD
+            th(data-field='tensp') Sản phẩm
+            th(data-field='soluong') Số lượng
+            th(data-field='thanhtien') Thành tiền        
+        each item in tabledata
+          tr.data-row
+            td.item-idchitiethoadon= item.idchitiethoadon
+            td.item-idhoadon= item.idhoadon
+            td.item-tensp= item.tensp
+            td.item-soluong= item.soluong
+            td.item-thanhtien= item.thanhtien
+        
+    form.row(action='/insert-cthoadon', method='post', name='insert-form')
+      select#select-idhoadon.browser-default.my-input.validate.col.s12.m3(name='idhoadon')
+        option(value=' ', disabled='', selected='') Mã HD
+        each item in hoadon
+          option(value= item.idhoadon)= item.idhoadon
+      select#select-tensp.browser-default.my-input.validate.col.s12.m3(name='idsanpham')
+        option(value=' ', disabled='', selected='') Sản phẩm
+        each item in sanpham
+          option(value= item.idsanpham)= item.tensp
+      input#input-soluong.my-input.validate.col.s12.m3(type='number', placeholder='Số lượng', name='soluong', min='0', step='1', value='1')
+      button#insert-cthoadon.btn-insert.btn.waves-effect.waves-light.my-btn.col.s12.m3(type='submit')
+        |Thêm
+      a#delete-cthoadon.btn-delete.waves-effect.waves-light.btn.my-btn.col.s12.m3
+        |Xóa
+      a#update-cthoadon.btn-update.waves-effect.waves-light.btn.my-btn.col.s12.m3
+        |Cập nhật
+  
+
+        

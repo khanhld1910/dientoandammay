@@ -1,0 +1,50 @@
+doctype html
+html
+  head
+    script(type='text/javascript', src='/javascripts/sorttable.js')
+    link(href='http://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    link(type='text/css', rel='stylesheet', href='/materialize/css/materialize.min.css', media='screen,projection')
+    link(type='text/css', rel='stylesheet', href='/stylesheets/style.css')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title= title
+  body
+    nav
+      ul.left.hide-on-med-and-down
+        li
+          a(href='/')
+            i.material-icons store
+        li
+          a(href='/khachhang')
+            i.material-icons supervisor_account
+        li
+          a(href='/sanpham')
+            i.material-icons shopping_cart
+        li
+          a(href='/loaisp')
+            i.material-icons local_offer
+        li
+          a(href='/hoadon')
+            i.material-icons local_shipping
+        li
+          a(href='/cthoadon')
+            i.material-icons info
+      ul#slide-out.side-nav
+        li.logo
+        li
+          a(href='/') Quản Lý Bán Hàng
+        li
+          a(href='/khachhang') Quản Lý Khách Hàng
+        li
+          a(href='/sanpham') Quản Lý Sản Phẩm
+        li
+          a(href='/loaisp') Quản Lý Loại Sản Phẩm
+        li
+          a(href='/hoadon') Quản Lý Hóa Đơn
+        li
+          a(href='/cthoadon') Quản Lý Chi Tiết Hóa Đơn
+      a.button-collapse(href='#', data-activates='slide-out')
+        i.material-icons menu
+    block content    
+    script(type='text/javascript', src='/javascripts/jquery-1.12.3.min.js')
+    script(type='text/javascript', src='/materialize/js/materialize.min.js')
+    script(type='text/javascript', src='/javascripts/client.js')

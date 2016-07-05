@@ -1,0 +1,47 @@
+body {
+    margin: 0 auto;
+}
+
+main.container {
+    margin: 15px auto 30px;
+    padding: 10px 20px;
+}
+
+.my-btn,
+.my-input {
+    margin-right: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+#table-container {
+    max-height: 300px;
+    overflow: scroll;
+}
+
+h4.header {
+    margin: 10px auto;
+    font-size: 1.2em;
+}
+
+tr.data-row.isChecked {
+    background-color: #8bc34a;
+}
+
+li.logo {
+    text-align: center;
+    margin-top: 32px;
+    padding-bottom: 80px;
+    border-bottom: 1px solid grey;
+}
+
+
+/* Sortable tables */
+
+table.sortable thead {
+    font-weight: bold;
+    cursor: url(sort.png), url(sort.png), auto;
+}
+
+table.sortable {
+    cursor: pointer;
+}
