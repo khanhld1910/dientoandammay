@@ -1,1 +1,0 @@
-[{"id":1,"ten":"Hương Phố","diachi":"TP. Hồ Chí Minh","von":200000000},{"id":2,"ten":"Sông Hương","diachi":"Huế","von":"500000"}]
